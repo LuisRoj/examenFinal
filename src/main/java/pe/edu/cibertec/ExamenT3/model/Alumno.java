@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -33,5 +34,5 @@ public class Alumno {
     private String nombreUsuario;
 
     @Column(nullable = false)
-    private Date fecha;
+    private LocalDateTime fecha;
 }

@@ -1,24 +1,21 @@
 package pe.edu.cibertec.ExamenT3.service;
 
+import org.springframework.http.ResponseEntity;
 import pe.edu.cibertec.ExamenT3.model.Alumno;
 
 import java.util.List;
+import java.util.Map;
 
 public interface AlumnoService {
+    ResponseEntity<Map<String, Object>> findAll();
 
-    // Método para obtener la lista de todos los alumnos
-    List<Alumno> findAll();
+    ResponseEntity<Map<String, Object>> findById(Long id);
 
-    // Método para obtener un alumno por su ID
-    Alumno findById(Long id);
+    ResponseEntity<Map<String, Object>> save(Alumno alumno);
 
-    // Método para crear un nuevo alumno
-    Alumno save(Alumno alumno);
+    ResponseEntity<Map<String, Object>> update(Long id, Alumno alumnoDetails);
 
-    // Método para actualizar un alumno existente
-    Alumno update(Long id, Alumno alumnoDetails);
-
-    // Método para eliminar un alumno por su ID
-    void delete(Long id);
+    ResponseEntity<Map<String, Object>> delete(Long id);
 }
+
 

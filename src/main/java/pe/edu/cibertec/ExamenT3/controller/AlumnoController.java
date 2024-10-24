@@ -8,6 +8,7 @@ import pe.edu.cibertec.ExamenT3.model.Alumno;
 import pe.edu.cibertec.ExamenT3.service.AlumnoService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/alumnos")
@@ -17,32 +18,29 @@ public class AlumnoController {
     private AlumnoService alumnoService;
 
     @PostMapping("/create")
-    public ResponseEntity<Alumno> crearAlumno(@RequestBody Alumno alumno) {
-        Alumno nuevoAlumno = alumnoService.save(alumno);
-        return ResponseEntity.status(HttpStatus.CREATED).body(nuevoAlumno);
+    public ResponseEntity<Map<String, Object>> crearAlumno(@RequestBody Alumno alumno) {
+        return alumnoService.save(alumno);
     }
 
     @GetMapping("/list")
-    public ResponseEntity<List<Alumno>> listarAlumnos() {
-        return ResponseEntity.ok(alumnoService.findAll());
+    public ResponseEntity<Map<String, Object>> listarAlumnos() {
+        return alumnoService.findAll();
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<Alumno> buscarAlumno(@PathVariable Long id) {
-        Alumno alumno = alumnoService.findById(id);
-        return ResponseEntity.ok(alumno);
+    public ResponseEntity<Map<String, Object>> buscarAlumno(@PathVariable Long id) {
+        return alumnoService.findById(id);
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Alumno> actualizarAlumno(@PathVariable Long id, @RequestBody Alumno alumnoDetails) {
-        Alumno updatedAlumno = alumnoService.update(id, alumnoDetails);
-        return ResponseEntity.ok(updatedAlumno);
+    public ResponseEntity<Map<String, Object>> actualizarAlumno(@PathVariable Long id, @RequestBody Alumno alumnoDetails) {
+        return alumnoService.update(id, alumnoDetails);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> eliminarAlumno(@PathVariable Long id) {
-        alumnoService.delete(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<Map<String, Object>> eliminarAlumno(@PathVariable Long id) {
+        return alumnoService.delete(id);
     }
 }
+
 
