@@ -14,8 +14,8 @@ import io.jsonwebtoken.security.Keys;
 
 public class Token {
 
-    private final static String TOKEN_SECRETO = "R#m3St3X%{gBHw}6kbbxZYX]3LZVz%4)";
-    private final static Long TOKEN_DURACION = 3_600_000L;
+    private final static String TOKEN_SECRETO = "ap=T$,Qd]{-V6.nM_6_@3JAd;$TU4rbn";
+    private final static Long TOKEN_DURACION = 600_000L;
 
     public static String crearToken(String nombre, String email) {
         long expiracionTiempo = TOKEN_DURACION;
